@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BeehiveSimulator {
     class Queen {
-        private Worker workers;
+        private Worker[] workers;
         private int shiftNumber = 0;
-        public Queen(Worker workers) {
+        public Queen(Worker[] workers) {      // constructor
             this.workers = workers;
         }
 
-        public bool AssignWork(string job) {
+        public bool AssignWork(string job, int shifts) {
             return true;  // return false if no bee can do the job
         }
 
@@ -20,6 +20,5 @@ namespace BeehiveSimulator {
             string result = "";
             return result;  // return the constructed string, for the report
         }
-
     }
 }

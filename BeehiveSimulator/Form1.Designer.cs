@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.report = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.shifts)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +67,7 @@
             this.assignJob.TabIndex = 2;
             this.assignJob.Text = "Assign this job to a bee";
             this.assignJob.UseVisualStyleBackColor = true;
+            this.assignJob.Click += new System.EventHandler(this.assignJob_Click);
             // 
             // nextShift
             // 
@@ -75,6 +77,7 @@
             this.nextShift.TabIndex = 3;
             this.nextShift.Text = "Work the next shift";
             this.nextShift.UseVisualStyleBackColor = true;
+            this.nextShift.Click += new System.EventHandler(this.nextShift_Click);
             // 
             // label2
             // 
@@ -110,11 +113,20 @@
             // 
             // report
             // 
-            this.report.Location = new System.Drawing.Point(12, 152);
+            this.report.Location = new System.Drawing.Point(12, 171);
             this.report.Multiline = true;
             this.report.Name = "report";
-            this.report.Size = new System.Drawing.Size(297, 229);
+            this.report.Size = new System.Drawing.Size(297, 210);
             this.report.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(129, 155);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Shift Report";
             // 
             // Form1
             // 
@@ -122,6 +134,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(321, 393);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.report);
             this.Controls.Add(this.nextShift);
             this.Controls.Add(this.groupBox1);
@@ -147,6 +160,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox report;
+        private System.Windows.Forms.Label label3;
     }
 }
 

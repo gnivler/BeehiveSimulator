@@ -8,8 +8,8 @@ namespace BeehiveSimulator {
     class Worker {
         public string CurrentJob { get; }
         public int ShiftsLeft { get; }
+        private int ShiftsToWork, shiftsWorked;
         private string[] mySkills;
-        private int ShiftsToWork;
 
         public Worker (string[] skills) {  // constructor adds array of strings from form inititalization
             mySkills = skills;
