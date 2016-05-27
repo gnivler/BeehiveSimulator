@@ -55,9 +55,19 @@
             // shifts
             // 
             this.shifts.Location = new System.Drawing.Point(226, 59);
+            this.shifts.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.shifts.Name = "shifts";
             this.shifts.Size = new System.Drawing.Size(65, 20);
             this.shifts.TabIndex = 1;
+            this.shifts.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // assignJob
             // 
