@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace BeehiveSimulator {
     public partial class Form1 : Form {
-        Queen queen;
+        private Queen queen;
         public Form1() {
             InitializeComponent();
             workerBeeJob.SelectedIndex = 0;
@@ -24,13 +24,13 @@ namespace BeehiveSimulator {
 
         private void assignJob_Click(object sender, EventArgs e) {
             if (queen.AssignWork(workerBeeJob.Text, (int)shifts.Value))             
-                MessageBox.Show(workerBeeJob.Text + " will be done in " + (int)shifts.Value + " shifts.");
+                MessageBox.Show(workerBeeJob.Text + " will be done in " + (int)shifts.Value + " shifts.", "The queen bee says...");
             else
-                MessageBox.Show("There's no available worker for this job.");
+                MessageBox.Show("There's no available worker for this job.", "The queen bee says...");
         }
 
         private void nextShift_Click(object sender, EventArgs e) {
-            queen.WorkNext();
+            report.Text = queen.WorkNext();
         }
     }
 }

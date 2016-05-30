@@ -9,9 +9,7 @@ namespace BeehiveSimulator {
         private string currentJob = "";     // backing field needed
         public string CurrentJob {
             get {
-                if (!String.IsNullOrEmpty(currentJob))
-                    return currentJob;      // if job return job string
-                return "";      // else return empty string
+                return currentJob;      // if job return job string
             }                
         }
 
@@ -27,15 +25,22 @@ namespace BeehiveSimulator {
         }
 
         public bool DoThisJob(string job, int shifts) {     // see if this bee can perform a specific job (by string name)
-            if (!String.IsNullOrEmpty(job)) {      // false if still working shifts, no point in checking if they can do the job
+            if (!String.IsNullOrEmpty(CurrentJob))      // false if still working shifts, no point in checking if they can do the job
                 return false;
-            }
-            foreach (var skill in mySkills) {
+            /* foreach (var skill in mySkills) {
                 if (skill == job)
-                    shiftsToWork = shifts;
+                    this.shiftsToWork = shifts;
                     currentJob = job;
                     shiftsWorked = 0;
                     return true;        // ready and able to do the job
+            } */
+            for (int i = 0; i < mySkills.Length; i++) {
+                if (mySkills[i] == job) {
+                    currentJob = job;
+                    this.shiftsToWork = shifts;
+                    shiftsWorked = 0;
+                    return true;
+                }
             }
             return false;       // bee isn't busy but can't do the job either
         }

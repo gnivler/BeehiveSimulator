@@ -22,14 +22,20 @@ namespace BeehiveSimulator {
         }
 
         public string WorkNext() {
-            string result = "";
-
+            shiftNumber++;
+            string result = "Report for shift #" + shiftNumber + "\r\n";
             for (int i = 0; i < workers.Length; i++) {
-                if (workers[i].DidYouFinish() {
-                    result += "Bee #" + i + " is "
+                if (workers[i].DidYouFinish())
+                    result += "Bee #" + (i + 1) + " finished the job\r\n";
+                if (String.IsNullOrEmpty(workers[i].CurrentJob))
+                    result += "Bee #" + (i + 1) + " is not working\r\n";
+                else {
+                    if (workers[i].ShiftsLeft > 0)
+                        result += "Bee #" + (i + 1) + " is doing " + workers[i].CurrentJob + " for " + workers[i].ShiftsLeft + " more shifts\r\n";
+                    else
+                        result += "Worker #" + (i + 1) + " will be done with " + workers[i].CurrentJob + " after this shift\r\n";
                 }
             }
-
             return result;  // return the constructed string, for the report
         }
     }

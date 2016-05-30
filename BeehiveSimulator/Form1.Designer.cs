@@ -41,7 +41,7 @@
             this.workerBeeJob.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.workerBeeJob.FormattingEnabled = true;
             this.workerBeeJob.Items.AddRange(new object[] {
-            "Nectar Collector",
+            "Nectar collector",
             "Honey manufacturing",
             "Egg care",
             "Baby bee tutoring",
