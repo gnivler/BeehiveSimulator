@@ -27,21 +27,22 @@ namespace BeehiveSimulator {
         public bool DoThisJob(string job, int shifts) {     // see if this bee can perform a specific job (by string name)
             if (!String.IsNullOrEmpty(CurrentJob))      // false if still working shifts, no point in checking if they can do the job
                 return false;
-            /* foreach (var skill in mySkills) {
-                if (skill == job)
-                    this.shiftsToWork = shifts;
+            foreach (var skill in mySkills) {
+                if (skill == job) {
                     currentJob = job;
+                    shiftsToWork = shifts;
                     shiftsWorked = 0;
-                    return true;        // ready and able to do the job
-            } */
-            for (int i = 0; i < mySkills.Length; i++) {
+                    return true;
+                }
+            } 
+            /*for (int i = 0; i < mySkills.Length; i++) {
                 if (mySkills[i] == job) {
                     currentJob = job;
                     this.shiftsToWork = shifts;
                     shiftsWorked = 0;
                     return true;
                 }
-            }
+            }*/
             return false;       // bee isn't busy but can't do the job either
         }
 
