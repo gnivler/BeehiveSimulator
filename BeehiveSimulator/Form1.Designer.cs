@@ -148,6 +148,7 @@
             this.Controls.Add(this.report);
             this.Controls.Add(this.nextShift);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";

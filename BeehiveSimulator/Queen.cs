@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 
 namespace BeehiveSimulator {
-    class Queen {
+    class Queen : Bee {
         private Worker[] workers;
         private int shiftNumber = 0;
-        public Queen(Worker[] workers) {      // constructor
+
+        public Queen(Worker[] workers, double weightMg) : base (weightMg) {      // constructor
             this.workers = workers;
         }
 
@@ -22,6 +23,7 @@ namespace BeehiveSimulator {
         }
 
         public string WorkNext() {
+            double totalHoney = HoneyConsumptionRate();
             shiftNumber++;
             string result = "Report for shift #" + shiftNumber + "\r\n";
             for (int i = 0; i < workers.Length; i++) {
@@ -30,12 +32,14 @@ namespace BeehiveSimulator {
                 if (String.IsNullOrEmpty(workers[i].CurrentJob))
                     result += "Bee #" + (i + 1) + " is not working\r\n";
                 else {
-                    if (workers[i].ShiftsLeft > 0)
+                    if (workers[i].ShiftsLeft > 0) {
                         result += "Bee #" + (i + 1) + " is doing " + workers[i].CurrentJob + " for " + workers[i].ShiftsLeft + " more shifts\r\n";
-                    else
+                        totalHoney += workers[i].HoneyConsumptionRate();
+                    } else
                         result += "Worker #" + (i + 1) + " will be done with " + workers[i].CurrentJob + " after this shift\r\n";
                 }
             }
+            result += "Total honey consumed for the shift: " + (totalHoney + HoneyConsumptionRate()) + "\r\n";
             return result;  // return the constructed string, for the report
         }
     }

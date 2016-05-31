@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BeehiveSimulator {
-    class Worker {
+    class Worker : Bee {
         private string currentJob = "";     // backing field needed
         public string CurrentJob {
             get {
@@ -19,8 +19,9 @@ namespace BeehiveSimulator {
 
         private int shiftsToWork, shiftsWorked;
         private string[] mySkills;
+        private const double honeyPerShift = 0.65;
 
-        public Worker (string[] skills) {  // constructor adds array of strings from form inititalization
+        public Worker (string[] skills, double weightMg) : base (weightMg) {  // constructor adds array of strings from form inititalization
             mySkills = skills;
         }
 
@@ -35,14 +36,6 @@ namespace BeehiveSimulator {
                     return true;
                 }
             } 
-            /*for (int i = 0; i < mySkills.Length; i++) {
-                if (mySkills[i] == job) {
-                    currentJob = job;
-                    this.shiftsToWork = shifts;
-                    shiftsWorked = 0;
-                    return true;
-                }
-            }*/
             return false;       // bee isn't busy but can't do the job either
         }
 
@@ -57,6 +50,13 @@ namespace BeehiveSimulator {
                 return true;        // all the shifts were worked so reset the fields and be ready for assigment
             }
             return false;
+        }
+
+        public override double HoneyConsumptionRate() {
+            double consumption = base.HoneyConsumptionRate();
+            consumption += shiftsWorked * honeyPerShift;
+
+            return consumption;
         }
     }
 }
